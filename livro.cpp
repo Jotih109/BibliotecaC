@@ -25,7 +25,6 @@ int main() {
     setlocale(LC_ALL, ""); // permite acentos no console (depende do SO)
     Livro li[MAX_LIVROS];
     int opcao;
-    int n;
     int i = 0; // índice do próximo livro a ser cadastrado
 
     do {
@@ -109,17 +108,18 @@ int main() {
                 printf("Nenhum livro cadastrado ainda.\n");
             } else {
                 printf("\n--- Lista de livros ---\n");
-    			for (int i = 0; i < n; ++i) {
-        		printf("[%d]\n", i + 1);
-        		printf("Nome: %s\n", li[i].nome);
-        		printf("Autor: %s\n", li[i].autor);
-        		printf("ISBN: %s\n", li[i].isbn);
-        		printf("Editora: %s\n", li[i].editora);
-        		printf("Ano: %d\n", li[i].ano);
-       	 		printf("Número de Páginas: %d\n", li[i].numeroP);
-        		printf("Categoria: %s\n", li[i].categoria);
-        		printf("Número de Cópias: %d\n", li[i].copias);
-    			}
+    			for (int j = 0; j < i; ++j) {
+                printf("[%d]\n", j + 1);
+                printf("Nome: %s\n", li[j].nome);
+                printf("Autor: %s\n", li[j].autor);
+                printf("ISBN: %s\n", li[j].isbn);
+                printf("Editora: %s\n", li[j].editora);
+                printf("Ano: %d\n", li[j].ano);
+                printf("Número de Páginas: %d\n", li[j].numeroP);
+                printf("Categoria: %s\n", li[j].categoria);
+                printf("Número de Cópias: %d\n\n", li[j].copias);
+                }
+
             }
             break;
 
