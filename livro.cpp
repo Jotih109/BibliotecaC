@@ -24,8 +24,10 @@ void limpaBuffer() {
 int main() {
     setlocale(LC_ALL, ""); // permite acentos no console (depende do SO)
     Livro li[MAX_LIVROS];
+    char busca[127];
     int opcao;
     int i = 0; // índice do próximo livro a ser cadastrado
+    int conf;
 
     do {
         printf("\n---------------------------\n");
@@ -122,9 +124,33 @@ int main() {
             if (i == 0) {
                 printf("Nenhum livro cadastrado ainda.\n");
             } else {
-                printf("Funcionalidade de busca ainda não implementada.\n");
+                printf("Digite o nome do livro que deseja procurar: ");
+                if (fgets(busca, sizeof(busca), stdin) == NULL) busca[0] = '\0';
+                size_t len_busca = strlen(busca);
+                if (len_busca > 0 && busca[len_busca - 1] == '\n') busca[len_busca - 1] = '\0';
+            
+                int encontrado = 0;
+                for (int j = 0; j < i; j++) {
+                    if (strcmp(li[j].nome, busca) == 0) {  // comparação exata
+                        printf("\nLivro encontrado!\n");
+                        printf("Nome: %s\n", li[j].nome);
+                        printf("Autor: %s\n", li[j].autor);
+                        printf("ISBN: %s\n", li[j].isbn);
+                        printf("Editora: %s\n", li[j].editora);
+                        printf("Ano: %d\n", li[j].ano);
+                        printf("Número de Páginas: %d\n", li[j].numeroP);
+                        printf("Categoria: %s\n", li[j].categoria);
+                        printf("Número de Cópias: %d\n", li[j].copias);
+                        encontrado = 1;
+                        break; // sai do loop depois de achar
+                    }
+                }
+                if (!encontrado) {
+                    printf("Livro não encontrado.\n");
+                }
             }
             break;
+
             
         case 4:
             if (i == 0) {
@@ -138,8 +164,38 @@ int main() {
             if (i == 0) {
                 printf("Nenhum livro cadastrado ainda.\n");
             } else {
-                printf("Funcionalidade de busca ainda não implementada.\n");
+            	printf("Digite o nome do livro que deseja deletar: ");
+                if (fgets(busca, sizeof(busca), stdin) == NULL) busca[0] = '\0'; size_t len_busca = strlen(busca);
+                if (len_busca > 0 && busca[len_busca - 1] == '\n') busca[len_busca - 1] = '\0';
+                int encontrado = 0;
+                for (int j = 0; j < i; j++) {
+                    if (strcmp(li[j].nome, busca) == 0) {  // comparação exata
+                        printf("\nLivro encontrado!\n");
+                        printf("Nome: %s\n", li[j].nome);
+                        printf("Autor: %s\n", li[j].autor);
+                        printf("ISBN: %s\n", li[j].isbn);
+                        printf("Editora: %s\n", li[j].editora);
+                        printf("Ano: %d\n", li[j].ano);
+                        printf("Número de Páginas: %d\n", li[j].numeroP);
+                        printf("Categoria: %s\n", li[j].categoria);
+                        printf("Número de Cópias: %d\n", li[j].copias);
+                        encontrado = 1;
+                        
+                        printf("Você tem certeza?\n");
+                        printf("(1)Sim    (2)Não");
+                        scanf("%d", &conf);
+                        if (conf == 1)
+                        {
+                            printf("SIM");
+                        } else{
+                            printf("NÃo");
+                        }
+                        
+                        break; // sai do loop depois de achar
+                        
+                    }
             }
+			}
             break;
 
         case 6:
