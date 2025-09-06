@@ -106,15 +106,15 @@ int main() {
             } else {
                 printf("\n--- Lista de livros ---\n");
     			for (int j = 0; j < i; ++j) {
-    			printf("\n--- %d° Livro ---\n", j + 1);
-                printf("Nome: %s\n", li[j].nome);
-                printf("Autor: %s\n", li[j].autor);
-                printf("ISBN: %s\n", li[j].isbn);
-                printf("Editora: %s\n", li[j].editora);
-                printf("Ano: %d\n", li[j].ano);
-                printf("Número de Páginas: %d\n", li[j].numeroP);
-                printf("Categoria: %s\n", li[j].categoria);
-                printf("Número de Cópias: %d\n", li[j].copias);
+    			    printf("\n--- %d° Livro ---\n", j + 1);
+                    printf("Nome: %s\n", li[j].nome);
+                    printf("Autor: %s\n", li[j].autor);
+                    printf("ISBN: %s\n", li[j].isbn);
+                    printf("Editora: %s\n", li[j].editora);
+                    printf("Ano: %d\n", li[j].ano);
+                    printf("Número de Páginas: %d\n", li[j].numeroP);
+                    printf("Categoria: %s\n", li[j].categoria);
+                    printf("Número de Cópias: %d\n", li[j].copias);
                 }
 
             }
